@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: api
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/tranner
+    username: user
+    password: password
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    database: postgresql
+#    database-platform: org.hibernate.dialect.PostgreSQL10Dialect
