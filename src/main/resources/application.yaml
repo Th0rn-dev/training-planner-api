@@ -1,3 +1,10 @@
 spring:
   application:
     name: api
+  datasource:
+    url: jdbc:postgresql://185.125.219.131:5432/${DB_NAME}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    database: postgresql
