@@ -1,7 +1,6 @@
 package ru.wingchunclub.api.controllers;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import ru.wingchunclub.api.dto.CategoryTreeDto;
@@ -12,14 +11,13 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api")
+@RequiredArgsConstructor
 public class CategoryControllerImpl implements CategoryController {
 
-    @Autowired
-    private CategoryService categoryService;
+    private final CategoryService categoryService;
 
     @Override
-    public ResponseEntity<List<CategoryTreeDto>> getTreeCategories() {
-        var tree = categoryService.getCategories();
-        return ResponseEntity.ok(tree);
+    public List<CategoryTreeDto> getTreeCategories() {
+        return categoryService.getCategories();
     }
 }
