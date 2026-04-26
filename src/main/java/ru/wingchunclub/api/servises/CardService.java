@@ -3,6 +3,7 @@ package ru.wingchunclub.api.servises;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.wingchunclub.api.dto.CardDto;
+import ru.wingchunclub.api.entity.Card;
 import ru.wingchunclub.api.mappers.CardMapper;
 import ru.wingchunclub.api.repositories.CardRepository;
 
@@ -17,8 +18,14 @@ public class CardService {
     @Autowired
     CardMapper cardMapper;
 
-    public List<CardDto> getCards(UUID categoryId) {
-        var cards = cardRepository.findByCategoryIdAndInvisibleFalse(categoryId);
+    public List<CardDto> getCards(UUID categoryId, boolean all) {
+        List<Card> cards;
+        if (all) {
+            cards = cardRepository.findByCategoryId(categoryId);
+        } else {
+            // только разрешенные к отображению
+            cards = cardRepository.findByCategoryIdAndInvisibleFalse(categoryId);
+        }
         return cardMapper.toDtos(cards);
     }
 }

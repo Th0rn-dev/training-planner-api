@@ -40,4 +40,7 @@ public class CategoryService {
                 ))
                 .toList();
     }
+    public List<UUID> getCategoryIds() {
+        return categoryRepository.getAllIds();
+    }
 }

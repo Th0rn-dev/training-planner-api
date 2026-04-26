@@ -7,6 +7,7 @@ import ru.wingchunclub.api.dto.CategoryTreeDto;
 import ru.wingchunclub.api.servises.CategoryService;
 
 import java.util.List;
+import java.util.UUID;
 
 
 @RestController
@@ -20,4 +21,10 @@ public class CategoryControllerImpl implements CategoryController {
     public List<CategoryTreeDto> getTreeCategories() {
         return categoryService.getCategories();
     }
+
+    @Override
+    public List<UUID> getCategoryIds() {
+        return categoryService.getCategoryIds();
+    }
+
 }
