@@ -17,7 +17,7 @@ public class CardControllerImp implements CardController {
     private final CardService cardService;
 
     @Override
-    public List<CardDto> getCard(UUID categoryId) {
-        return cardService.getCards(categoryId);
+    public List<CardDto> getCards(UUID categoryId, boolean all) {
+        return cardService.getCards(categoryId, all);
     }
 }
